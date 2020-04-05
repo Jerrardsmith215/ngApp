@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { NewsTableComponent } from './news-table/newstable.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
