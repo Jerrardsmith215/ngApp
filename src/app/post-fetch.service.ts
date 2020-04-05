@@ -15,7 +15,7 @@ export interface IArticle {
 })
 
 export class PostFetchService {
-  private url: string = 'http://localhost:3000/'; 
+  private url: string = 'https://ngwpapi.herokuapp.com/'; 
   constructor( private http: HttpClient ) {}
 
   fetchPosts(): Observable<IArticle[]>{
