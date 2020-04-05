@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(path.join(__dirname + '/dist/ngapp')));
+app.use(express.static(__dirname + '/dist/ngapp'));
 
 app.get('*', (req,res) => { 
     res.sendFile(path.join(__dirname + '/dist/ngapp/index.html'));
