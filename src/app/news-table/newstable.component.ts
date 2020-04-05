@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PostFetchService } from '../post-fetch.service';
+
+let store = [];
 
 @Component({
     selector: 'news-table',
@@ -7,7 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NewsTableComponent implements OnInit {
-    constructor() { }
+    public data = [];
+    constructor(private api: PostFetchService) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.api.fetchPosts()
+            .subscribe(posts => {
+                this.data = posts;
+                store = posts;
+            });
+    }
+
+    displayedColumns: string[] = ['id', 'title', 'status', 'slug', 'date'];
+    dataSource = this.data;
 }
